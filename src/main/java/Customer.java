@@ -60,4 +60,10 @@ public class Customer {
     public void emptyBasket(){
         this.basket.clear();
     }
+
+    public void takeStockItemFromShop(Shop shop) {
+        Item item = shop.canRemoveStock();
+        basket.add(item);
+
+    }
 }
