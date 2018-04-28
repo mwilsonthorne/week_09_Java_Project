@@ -1,13 +1,17 @@
+import java.util.ArrayList;
+
 public class Customer {
 
     String name; //define instance variables as private stops any unwanted access externally.
     private int age;
     private double wallet;
+    private ArrayList<Item> basket; //store a collection of Item class
 
     public Customer(String name, int age, double wallet){ //creating the constructor function with public allows access externally.
         this.name = name;  //instance variables are the state of our object eg name,age and wallet.
         this.age = age;
         this.wallet = wallet;
+        this.basket = new ArrayList<Item>(); //ArrayList is empty so don't have to pass in as an argument.
     }
 
     public String getName(){
