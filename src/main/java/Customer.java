@@ -49,4 +49,15 @@ public class Customer {
     // do not need to change any of their code.
 
 
+    public int basketCount() {
+        return this.basket.size();
+    }
+
+    public void addItemToBasket(Item item){
+        this.basket.add(item);
+    }
+
+    public void emptyBasket(){
+        this.basket.clear();
+    }
 }
