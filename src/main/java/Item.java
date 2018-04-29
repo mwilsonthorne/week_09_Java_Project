@@ -27,6 +27,10 @@ public class Item {
         this.price = newPrice;
      }
 
+     public String advertise(String promote){
+        return "Great Deal: " + promote;
+     }
+
 
     }
 

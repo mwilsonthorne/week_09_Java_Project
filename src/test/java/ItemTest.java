@@ -34,5 +34,10 @@ public class ItemTest {
         assertEquals(0.80, item.getPrice(), 0.01);
     }
 
+    @Test
+    public void canAdvertise(){
+        assertEquals("Great Deal: 3 for the price of 2", item.advertise("3 for the price of 2"));
+    }
+
 
 }
