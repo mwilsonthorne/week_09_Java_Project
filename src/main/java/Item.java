@@ -6,7 +6,7 @@ public class Item {
         this.id = id;
     }
 
-     public int getid(){
+     public int getId(){
          return this.id;
         }
 

@@ -7,19 +7,24 @@ public class Shop {
 
     public Shop(String name){
         this.name = name;
-        this.stock = new ArrayList<>();
+        this.stock = new ArrayList<Item>();
     }
 
-    public int stockCount(){
-        return this.stock.size();
+    public String getName(){
+        return this.name;
     }
+
 
     public void addStock(Item item){
         this.stock.add(item);
     }
 
     public Item canRemoveStock() {
-        return this.stock.remove(0);
+       return this.stock.remove(0);
+    }
+
+    public int stockCount(){
+        return this.stock.size();
     }
 
 

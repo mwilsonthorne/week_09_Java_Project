@@ -16,6 +16,11 @@ public class ShopTest {
     }
 
     @Test
+    public void haveName() {
+        assertEquals("Harrids Convenience Store", shop.getName());
+    }
+
+    @Test
     public void stockIsEmptyInShop(){
         assertEquals(0, shop.stockCount());
     }
@@ -32,5 +37,9 @@ public class ShopTest {
         assertEquals(1, shop.stockCount());
         shop.canRemoveStock();
         assertEquals(0, shop.stockCount());
+    }
+
+    @Test public void itemHasId(){
+        assertEquals(2, item.getId());
     }
 }
