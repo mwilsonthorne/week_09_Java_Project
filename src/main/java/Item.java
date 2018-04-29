@@ -1,14 +1,31 @@
 public class Item {
 
     private int id;
+    private String brandname;
+    double price;
 
-    public Item(int id) {
+    public Item(int id, String brandname, double price) {
         this.id = id;
+        this.brandname = brandname;
+        this.price = price;
     }
 
      public int getId(){
-         return this.id;
+        return this.id;
         }
+
+
+     public String getBrandname(){
+        return this.brandname;
+     }
+
+     public double getPrice(){
+        return this.price;
+     }
+
+     public void setPrice(double newPrice){
+        this.price = newPrice;
+     }
 
 
     }

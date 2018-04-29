@@ -12,7 +12,7 @@ public class ShopTest {
     @Before
     public void before(){
         shop = new Shop("Harrids Convenience Store");
-        item = new Item(2);
+        item = new Item(2, "Daily Record", 0.50);
     }
 
     @Test
@@ -39,7 +39,4 @@ public class ShopTest {
         assertEquals(0, shop.stockCount());
     }
 
-    @Test public void itemHasId(){
-        assertEquals(2, item.getId());
-    }
 }

@@ -7,7 +7,7 @@ public class Shop {
 
     public Shop(String name){
         this.name = name;
-        this.stock = new ArrayList<Item>();
+        this.stock = new ArrayList<>();
     }
 
     public String getName(){

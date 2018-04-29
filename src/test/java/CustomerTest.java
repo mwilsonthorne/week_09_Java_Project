@@ -12,7 +12,7 @@ public class CustomerTest {
     @Before
     public void Before(){
         customer = new Customer("Jack", 72, 50);
-        item = new Item(1);
+        item = new Item(1, "The Sun", 0.70);
         shop = new Shop("Harrids Convenience Store");
         shop.addStock(item); //for testing we need to add a item object to the item ArrayList in the shop.
     }
