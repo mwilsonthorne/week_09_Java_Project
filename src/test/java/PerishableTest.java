@@ -6,6 +6,7 @@ import static org.junit.Assert.assertEquals;
 public class PerishableTest {
 
     Perishable perishable;
+    TopUp topUp;
 
     @Before
     public void before(){
@@ -20,5 +21,10 @@ public class PerishableTest {
     @Test
     public void canAdvertise(){
         assertEquals("Must go: Half Price", perishable.advertise("Half Price"));
+    }
+
+    @Test
+    public void canDisplayItemInWindow(){
+        assertEquals("BUY 1 GET 1 FREE", perishable.displayItemInWindow("BUY 1 GET 1 FREE"));
     }
 }
