@@ -1,4 +1,6 @@
-public class Item {
+import Interfaces.ISellable;
+
+public class Item implements ISellable{
 
     private int id;
     private String brandname;
