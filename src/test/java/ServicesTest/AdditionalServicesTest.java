@@ -1,5 +1,6 @@
 package ServicesTest;
 
+import Services.AdditionalServices;
 import Services.HotFood;
 import Services.PostOffice;
 import org.junit.Before;
@@ -11,11 +12,16 @@ public class AdditionalServicesTest {
 
     HotFood hotFood;
     PostOffice postOffice;
+    AdditionalServices additionalServices;
 
     @Before
     public void before(){
         hotFood = new HotFood("Hot Food served until: 11am");
         postOffice = new PostOffice("Last Post at 4pm today");
+//        additionalServices = new AdditionalServices();
+        //We need to have the ability to implement common code with sub classes and not
+        // instantiate the AdditionalServices class so we make the AdditionServices Class abstract.
+
     }
 
     @Test
@@ -38,6 +44,21 @@ public class AdditionalServicesTest {
         assertEquals("Last Post at 4pm today", postOffice.lastService("4pm"));
     }
 
+//    @Test
+//    public void additionalServicesLastService(){
+//        assertEquals("4pm closed", additionalServices.lastService("4pm"));
+//    }
+    //We need to have the ability to implement common code with sub classes and not
+    // instantiate the AdditionalServices class
 
+    @Test
+    public void postOfficeCanClose(){
+        assertEquals("Back in 5 mins", postOffice.notInService("5 mins"));
+    }
+
+    @Test
+    public void hotFoodCanClose(){
+        assertEquals("Breakfast menu finished. Lunch starts at 2pm", hotFood.notInService("2pm"));
+    }
 
 }

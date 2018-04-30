@@ -1,6 +1,6 @@
 package Services;
 
-public class HotFood {
+public class HotFood extends AdditionalServices {
 
     private String lastService;
 
@@ -12,7 +12,11 @@ public class HotFood {
         return lastService;
     }
 
-    public String lastService(String timeFrame) {
-        return "Hot Food served until: " + timeFrame;
+    public String lastService(String todayTime) {
+        return "Hot Food served until: " + super.lastService(todayTime);
+    }
+
+    public String notInService(String timeFrame){
+        return "Breakfast menu finished. Lunch starts at " + timeFrame;
     }
 }

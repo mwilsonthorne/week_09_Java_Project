@@ -73,7 +73,7 @@ public class Customer {
     //2. ENCAPSULATION - All classes have their variables set to private and only enable editing via public methods.
     //So in above method the customer object is communicating with other objects but only for customers related actions.
     //The shop is responsible for amending its collection of items and not the customer which shows DECOUPLING,
-    //separating of Customer and Shop functionality and ENCAPSULATION of class varaibles, shop only can change
+    //separating of Customer and Shop functionality and ENCAPSULATION of class variables, shop only can change
     // shops own array of items.
 
     public void emptyBasket(){
