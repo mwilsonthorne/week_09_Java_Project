@@ -21,6 +21,10 @@ public class AdditionalServicesTest {
 //        additionalServices = new AdditionalServices();
         //We need to have the ability to implement common code with sub classes and not
         // instantiate the AdditionalServices class so we make the AdditionServices Class abstract.
+        additionalServices = new PostOffice("Last Post at 4.30pm today");
+
+        // we can't make an instance of an abstract class but we can declare a variable of the abstract class and
+        //assign it with an instance of its subclass(PostOffice).
 
     }
 
@@ -52,13 +56,34 @@ public class AdditionalServicesTest {
     // instantiate the AdditionalServices class
 
     @Test
-    public void postOfficeCanClose(){
+    public void postOfficeCanBeOutOfService(){
         assertEquals("Back in 5 mins", postOffice.notInService("5 mins"));
     }
 
     @Test
-    public void hotFoodCanClose(){
+    public void hotFoodCanBeOutOfService(){
         assertEquals("Breakfast menu finished. Lunch starts at 2pm", hotFood.notInService("2pm"));
     }
+
+    @Test
+    public void postOfficeCanClose(){
+        assertEquals("We are now closed", postOffice.serviceClosed());
+    }
+
+    @Test
+    public void hotFoodCanClose(){
+        assertEquals("We are now closed", hotFood.serviceClosed());
+    }
+
+    //Above two tests are examples of serviceClosed method which hotFood and postOffice objects call
+    // from the abstract class.
+
+    @Test
+    public void todayAdditionalServicesLastService(){
+        assertEquals("Last Post at 4.30pm today", additionalServices.lastService("4.30pm"));
+    }
+
+    //Example above of testing with a variable of the abstract class.
+
 
 }
