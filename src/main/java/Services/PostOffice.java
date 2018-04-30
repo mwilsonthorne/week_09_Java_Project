@@ -2,18 +2,18 @@ package Services;
 
 public class PostOffice {
 
-    private String openingHours;
+    private String lastService;
 
-    public PostOffice(String openingHours){
-        this.openingHours = openingHours;
+    public PostOffice(String lastService){
+        this.lastService = lastService;
+    }
+
+    public String getLastService(){
+        return this.lastService;
     }
 
 
-    public String getOpeningHours(){
-        return this.openingHours;
-    }
-
-    public String openingHours(String timeFrame){
-        return "Last post at: " + timeFrame + "today";
+    public String lastService(String todayTime){
+        return "Last Post at " + todayTime + " today";
     }
 }

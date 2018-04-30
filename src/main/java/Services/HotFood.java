@@ -2,17 +2,17 @@ package Services;
 
 public class HotFood {
 
-    private String openingHours;
+    private String lastService;
 
-    public HotFood(String openingHours){
-        this.openingHours = openingHours;
+    public HotFood(String lastService){
+        this.lastService = lastService;
     }
 
-    public String getOpeningHours(){
-        return this.openingHours;
+    public String getLastService() {
+        return lastService;
     }
 
-    public String OpeningHours(String timeFrame) {
+    public String lastService(String timeFrame) {
         return "Hot Food served until: " + timeFrame;
     }
 }
