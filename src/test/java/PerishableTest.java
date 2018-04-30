@@ -1,3 +1,4 @@
+import Interfaces.IDisplayable;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,6 +26,10 @@ public class PerishableTest {
 
     @Test
     public void canDisplayItemInWindow(){
-        assertEquals("BUY 1 GET 1 FREE", perishable.displayItemInWindow("BUY 1 GET 1 FREE"));
+        IDisplayable window = new Perishable(6,"Roses", 7.00, "2nd May 2018");
+        assertEquals("BUY 1 GET 1 FREE", window.displayItemInWindow("BUY 1 GET 1 FREE"));
     }
+
+    //A class implementing an item also takes on the type of that item. When a class implements an interface
+    //you can use an instance of that class as an instance of that interface. See test above to show this.
 }
