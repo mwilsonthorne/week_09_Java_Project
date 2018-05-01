@@ -1,3 +1,5 @@
+import Interfaces.IEatable;
+
 import java.util.ArrayList;
 
 public class Customer {
@@ -6,12 +8,14 @@ public class Customer {
     private int age;
     private double wallet;
     private ArrayList<Item> basket; //store a collection of Item class
+    private IEatable trySample;
 
-    public Customer(String name, int age, double wallet){ //creating the constructor function with public allows access externally.
+    public Customer(String name, int age, double wallet, IEatable trySample){ //creating the constructor function with public allows access externally.
         this.name = name;  //instance variables are the state of our object eg name,age and wallet.
         this.age = age;
         this.wallet = wallet;
         this.basket = new ArrayList<>(); //ArrayList is empty so don't have to pass in as an argument.
+        this.trySample = trySample;
     }
 
     public String getName(){
@@ -78,6 +82,14 @@ public class Customer {
 
     public void emptyBasket(){
         this.basket.clear();
+    }
+
+    public IEatable getTrySample(){
+        return this.trySample;
+    }
+
+    public String sample(){
+        return this.trySample.sample();
     }
 
 

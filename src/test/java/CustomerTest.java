@@ -1,20 +1,32 @@
+import Services.HotFood;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
 public class CustomerTest {
 
     Customer customer;
+    Customer customer2;
     Item item;
     Shop shop;
+    Perishable perishable;
+    HotFood hotFood;
 
     @Before
     public void Before(){
-        customer = new Customer("Jack", 72, 50);
+        hotFood = new HotFood("Hello"); // need to ensure an object of hotFood is put before customer to
+        //ensure this is taken into account when creating the customer object(instance) below.
+        perishable = new Perishable(7, "Chocolate Brownie", 0.30, "14th May 2018");
+        customer = new Customer("Jack", 72, 50, hotFood);
+        customer2 = new Customer("Victor", 74, 60, perishable);
         item = new Item(1, "The Sun", 0.70);
         shop = new Shop("Harrids Convenience Store");
         shop.addStock(item); //for testing we need to add a item object to the item ArrayList in the shop.
+
+
     }
 
     @Test
@@ -52,6 +64,20 @@ public class CustomerTest {
         assertEquals(1, customer.basketCount());
         customer.emptyBasket();
         assertEquals(0, customer.basketCount());
+    }
+
+    @Test
+    public void canHaveASample(){
+//        HotFood hotFood = new HotFood("12pm");
+//        customer = new Customer("Jack", 72, 50, hotFood);
+        assertEquals("Hello Jack", customer.sample());
+    }
+
+    @Test
+    public void eatASample(){
+        Perishable trySample = (Perishable) customer2.getTrySample();
+        //
+        assertEquals(0.30, trySample.getPrice(), 0.1);
     }
 
 

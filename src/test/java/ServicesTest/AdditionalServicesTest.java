@@ -85,5 +85,9 @@ public class AdditionalServicesTest {
 
     //Example above of testing with a variable of the abstract class.
 
+    @Test
+    public void canGetSample(){
+        assertEquals("Hello Jack", hotFood.sample());
+    }
 
 }

@@ -32,4 +32,11 @@ public class PerishableTest {
 
     //A class implementing an item also takes on the type of that item. When a class implements an interface
     //you can use an instance of that class as an instance of that interface. See test above to show this.
+
+    @Test
+    public void canGiveSamples(){
+        assertEquals("Hello Victor", perishable.sample());
+    }
+
 }
+

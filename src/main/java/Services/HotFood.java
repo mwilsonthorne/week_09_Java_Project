@@ -1,6 +1,8 @@
 package Services;
 
-public class HotFood extends AdditionalServices {
+import Interfaces.IEatable;
+
+public class HotFood extends AdditionalServices implements IEatable {
 
     private String lastService;
 
@@ -18,5 +20,9 @@ public class HotFood extends AdditionalServices {
 
     public String notInService(String timeFrame){
         return "Breakfast menu finished. Lunch starts at " + timeFrame;
+    }
+
+    public String sample(){
+        return "Hello Jack";
     }
 }
