@@ -9,6 +9,7 @@ public class Customer {
     private double wallet;
     private ArrayList<Item> basket; //store a collection of Item class
     private IEatable trySample;
+    private ArrayList<PaymentMethods> paymentType;
 
     public Customer(String name, int age, double wallet, IEatable trySample){ //creating the constructor function with public allows access externally.
         this.name = name;  //instance variables are the state of our object eg name,age and wallet.
@@ -16,6 +17,7 @@ public class Customer {
         this.wallet = wallet;
         this.basket = new ArrayList<>(); //ArrayList is empty so don't have to pass in as an argument.
         this.trySample = trySample;
+        this.paymentType = new ArrayList<>();
     }
 
     public String getName(){
@@ -28,6 +30,10 @@ public class Customer {
 
     public double getWallet(){
         return this.wallet;
+    }
+
+    public void takeMoneyFromWallet(double amount){
+        this.wallet -= amount;
     }
 
     public void setWallet(double newValue){
@@ -53,8 +59,20 @@ public class Customer {
     // do not need to change any of their code.
 
 
+    public ArrayList<Item> getBasket() {
+        return basket;
+    }
+
+    public ArrayList<PaymentMethods> getPaymentType() {
+        return paymentType;
+    }
+
     public int basketCount() {
         return this.basket.size();
+    }
+
+    public int hasPaymentType() {
+        return this.paymentType.size();
     }
 
 //    public void addItemToBasket(Item item){
@@ -62,6 +80,11 @@ public class Customer {
 //    }
     //Amended above method to ensure that the shop is taken and adds an item from the shop
     // to the basket to method below.
+
+
+    public Item canGiveBackItemToShop(){
+        return this.basket.remove(0);
+    }
 
     public void takeStockItemFromShop(Shop shop) {
         Item item = shop.canRemoveStock();
@@ -90,6 +113,16 @@ public class Customer {
 
     public String sample(){
         return this.trySample.sample();
+    }
+
+    public void receiveRefundFromShop(Shop shop){
+        double total = 0;
+        ArrayList<Item> stockToTotal = shop.getStock();
+        for(Item item : stockToTotal){
+            total += item.getPrice();
+        }
+        this.wallet += total;
+        shop.takeMoneyFromTill(total);
     }
 
 

@@ -23,8 +23,8 @@ public class CustomerTest {
         customer = new Customer("Jack", 72, 50, hotFood);
         customer2 = new Customer("Victor", 74, 60, perishable);
         item = new Item(1, "The Sun", 0.70);
-        shop = new Shop("Harrids Convenience Store");
-        shop.addStock(item); //for testing we need to add a item object to the item ArrayList in the shop.
+        shop = new Shop("Harrids Convenience Store", 200, 1500);
+        shop.addStock(item); //for testing we need to add an item object to the item ArrayList in the shop.
 
 
     }
@@ -42,6 +42,11 @@ public class CustomerTest {
     @Test
     public void hasWallet(){
         assertEquals(50, customer.getWallet(), 0.1);
+    }
+
+    @Test
+    public void hasBasket(){
+        assertEquals(0, customer.getBasket().size());
     }
 
     @Test
@@ -78,6 +83,12 @@ public class CustomerTest {
         Perishable trySample = (Perishable) customer2.getTrySample();
         //
         assertEquals(0.30, trySample.getPrice(), 0.1);
+    }
+
+    @Test
+    public void deductMoneyFromCustomerWallet(){
+        customer.takeMoneyFromWallet(37.00);
+        assertEquals(13.00, customer.getWallet(), 0.01);
     }
 
 
