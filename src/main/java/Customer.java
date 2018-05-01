@@ -17,7 +17,7 @@ public class Customer {
         this.wallet = wallet;
         this.basket = new ArrayList<>(); //ArrayList is empty so don't have to pass in as an argument.
         this.trySample = trySample;
-        this.paymentType = new ArrayList<>();
+        this.paymentMethods = new ArrayList<>();
     }
 
     public String getName(){
@@ -60,11 +60,11 @@ public class Customer {
 
 
     public ArrayList<Item> getBasket() {
-        return basket;
+        return this.basket;
     }
 
-    public ArrayList<PaymentMethods> getPaymentType() {
-        return paymentType;
+    public ArrayList<PaymentMethod> getPaymentType() {
+        return this.paymentMethods;
     }
 
     public int basketCount() {
@@ -72,7 +72,7 @@ public class Customer {
     }
 
     public int hasPaymentType() {
-        return this.paymentType.size();
+        return this.paymentMethods.size();
     }
 
 //    public void addItemToBasket(Item item){
