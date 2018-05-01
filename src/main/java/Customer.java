@@ -9,7 +9,7 @@ public class Customer {
     private double wallet;
     private ArrayList<Item> basket; //store a collection of Item class
     private IEatable trySample;
-    private ArrayList<PaymentMethods> paymentType;
+    private ArrayList<PaymentMethod> paymentMethods;
 
     public Customer(String name, int age, double wallet, IEatable trySample){ //creating the constructor function with public allows access externally.
         this.name = name;  //instance variables are the state of our object eg name,age and wallet.

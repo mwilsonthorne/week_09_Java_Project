@@ -15,6 +15,7 @@ public class CustomerTest {
     Perishable perishable;
     HotFood hotFood;
 
+
     @Before
     public void Before(){
         hotFood = new HotFood("Hello"); // need to ensure an object of hotFood is put before customer to
@@ -47,6 +48,11 @@ public class CustomerTest {
     @Test
     public void hasBasket(){
         assertEquals(0, customer.getBasket().size());
+    }
+
+    @Test
+    public void hasPaymentTypesInWallet(){
+        assertEquals(0, customer.getPaymentType());
     }
 
     @Test
