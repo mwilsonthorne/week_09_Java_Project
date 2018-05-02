@@ -45,7 +45,7 @@ public class Shop {
         return this.stock.size();
     }
 
-    public void canAcceptItemFromCustomer(Customer customer){
+    public void canTakeItemFromCustomer(Customer customer){
         Item item = customer.canGiveBackItemToShop();
         this.stock.add(item);
 
@@ -67,6 +67,15 @@ public class Shop {
 
     public double reportTotalSales(){
         return this.sales -= this.startingFloat;
+    }
+
+    public void checkAgeOfCustomer(Customer customer){
+        if(customer.getAge() < 18){
+            Item item = customer.canGiveBackItemToShop();
+            this.stock.add(item);
+        }
+
+
     }
 
 

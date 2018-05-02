@@ -1,3 +1,4 @@
+import Services.HotFood;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,6 +10,7 @@ public class ShopTest {
     Item item;
     Customer customer;
     Perishable perishable;
+    Customer customer2;
 
 
     @Before
@@ -18,6 +20,7 @@ public class ShopTest {
         customer = new Customer("Tam", 70, 100, perishable);
         shop = new Shop("Harrids Convenience Store", 100, 1000);
         item = new Item(2, "Daily Record", 0.50);
+        customer2 = new Customer("Ned1", 15, 10, perishable);
     }
 
     @Test
@@ -73,7 +76,7 @@ public class ShopTest {
     public void canGiveARefund(){
         shop.addStock(item);
         customer.takeStockItemFromShop(shop);
-        shop.canAcceptItemFromCustomer(customer);
+        shop.canTakeItemFromCustomer(customer);
         customer.receiveRefundFromShop(shop);
         assertEquals(100.50, customer.getWallet(), 0.01);
         assertEquals(999.50, shop.getSales(), 0.01);
@@ -83,6 +86,22 @@ public class ShopTest {
     public void printOutTotalProfit(){
         assertEquals(900, shop.reportTotalSales(), 0.01);
 
+    }
+
+    @Test
+    public void checkCustomerID(){
+        shop.addStock(item);
+        customer2.takeStockItemFromShop(shop);
+        shop.checkAgeOfCustomer(customer2);
+        assertEquals(0, customer2.basketCount());
+    }
+
+    @Test
+    public void checkElderlyCustomerID(){
+        shop.addStock(item);
+        customer.takeStockItemFromShop(shop);
+        shop.checkAgeOfCustomer(customer);
+        assertEquals(1, customer.basketCount());
     }
 
 
