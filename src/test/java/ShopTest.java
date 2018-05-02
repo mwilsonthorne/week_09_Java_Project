@@ -2,6 +2,8 @@ import Services.HotFood;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class ShopTest {
@@ -11,16 +13,31 @@ public class ShopTest {
     Customer customer;
     Perishable perishable;
     Customer customer2;
+    Wallet wallet;
+    ArrayList<Item> items;
+    PaymentMethodType type;
+    PaymentMethod method;
+    ArrayList<PaymentMethod> methods;
 
 
     @Before
     public void before(){
-
         perishable = new Perishable(8, "Bread", 1.00, "May 5th 2018");
-        customer = new Customer("Tam", 70, 100, perishable);
+
         shop = new Shop("Harrids Convenience Store", 100, 1000);
         item = new Item(2, "Daily Record", 0.50);
-        customer2 = new Customer("Ned1", 15, 10, perishable);
+        items = new ArrayList<Item>();
+        items.add(item);
+
+        methods = new ArrayList<PaymentMethod>();
+        PaymentMethod pm1 = new PaymentMethod(PaymentMethodType.CREDITCARD, 100);
+        PaymentMethod pm2 = new PaymentMethod(PaymentMethodType.CASH, 10);
+        methods.add(pm1);
+        methods.add(pm2);
+        wallet = new Wallet(methods, PaymentMethodType.CASH);
+
+        customer = new Customer("Tam", 70, wallet, perishable);
+        customer2 = new Customer("Ned1", 15, wallet, perishable);
     }
 
     @Test
@@ -63,13 +80,13 @@ public class ShopTest {
         //ARRANGE carried out in before() eg created shop and customer.
 
         //ACTIONS we needed to add an item to the shop then have the customer remove an item from the shop
-        //then carry out the method between the shop and the customer to deduct wallet and increase sales.
+        //then carry out the methods between the shop and the customer to deduct wallet and increase sales.
         shop.addStock(item);
         customer.takeStockItemFromShop(shop);
         shop.checkOutCustomer(customer);
         //ASSERTS if the actions above have behaved correctly then below is the verification phase.
         assertEquals(1000.50, shop.getSales(), 0.01);
-        assertEquals(99.50, customer.getWallet(), 0.01);
+        assertEquals(9.5, customer.getWallet().getFundsOfDefaultPaymentMethod(), 0.01);
     }
 
     @Test
@@ -77,8 +94,8 @@ public class ShopTest {
         shop.addStock(item);
         customer.takeStockItemFromShop(shop);
         shop.canTakeItemFromCustomer(customer);
-        customer.receiveRefundFromShop(shop);
-        assertEquals(100.50, customer.getWallet(), 0.01);
+        customer.receiveRefundFromShop(shop, items);
+        assertEquals(10.50, customer.getWallet().getFundsOfDefaultPaymentMethod(), 0.01);
         assertEquals(999.50, shop.getSales(), 0.01);
     }
 

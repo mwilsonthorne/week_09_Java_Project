@@ -19,18 +19,17 @@ public class Perishable extends Item implements IDisplayable, IEatable {
     }
     //Example above of overriding method advertise from parent class(Item) to suit Perishable class.
 
-    public String displayItemInWindow(String label) {
 
-        return label;
+    public String descriptionForWindowDisplay() {
+        return "BEST " + this.getBrandname() + " IN TOWN";
     }
-
 
     //Liskov Substitution states if you substitutes a parent class with a child class then it should not break the app.
     //The above example proves this with replacing an instance of Item with an instance of either Perishable or AgeRestriction
     //SOLID = Liskov Substitution.
 
     public String sample(){
-        return "Have a piece";
+        return "Have a piece before " + expireDate;
     }
 
 

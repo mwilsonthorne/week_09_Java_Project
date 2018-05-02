@@ -2,7 +2,7 @@ package Interfaces;
 
 public interface IDisplayable {
 
-    String displayItemInWindow(String label);
+    public String descriptionForWindowDisplay();
 }
 
 //1. Interfaces only contain a description of methods not their full implementations.

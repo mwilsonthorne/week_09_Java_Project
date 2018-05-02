@@ -6,18 +6,18 @@ public class Customer {
 
     String name; //define instance variables as private stops any unwanted access externally.
     private int age;
-    private double wallet;
+    private Wallet wallet;
     private ArrayList<Item> basket; //store a collection of Item class
     private IEatable trySample;
-    private ArrayList<PaymentMethod> paymentMethods;
+    private PaymentMethod method;
 
-    public Customer(String name, int age, double wallet, IEatable trySample){ //creating the constructor function with public allows access externally.
+
+    public Customer(String name, int age, Wallet wallet, IEatable trySample){ //creating the constructor function with public allows access externally.
         this.name = name;  //instance variables are the state of our object eg name,age and wallet.
         this.age = age;
         this.wallet = wallet;
         this.basket = new ArrayList<>(); //ArrayList is empty so don't have to pass in as an argument.
         this.trySample = trySample;
-        this.paymentMethods = new ArrayList<>();
     }
 
     public String getName(){
@@ -28,15 +28,15 @@ public class Customer {
         return this.age;
     }
 
-    public double getWallet(){
+    public Wallet getWallet(){
         return this.wallet;
     }
 
     public void takeMoneyFromWallet(double amount){
-        this.wallet -= amount;
+        this.wallet.subtractFunds(amount);
     }
 
-    public void setWallet(double newValue){
+    public void setWallet(Wallet newValue){
         this.wallet = newValue;  //if you want to update the wallet after creating the object use a setter.
     }
 
@@ -63,18 +63,11 @@ public class Customer {
         return this.basket;
     }
 
-    public ArrayList<PaymentMethod> getPaymentType() {
-        return this.paymentMethods;
-    }
-
 
     public int basketCount() {
         return this.basket.size();
     }
 
-    public int hasPaymentType() {
-        return this.paymentMethods.size();
-    }
 
 //    public void addItemToBasket(Item item){
 //        this.basket.add(item);
@@ -89,7 +82,11 @@ public class Customer {
 
     public void takeStockItemFromShop(Shop shop) {
         Item item = shop.canRemoveStock();
-        this.basket.add(item);
+        this.addItemToBasket(item);
+    }
+
+    public void addItemToBasket(Item itemToGet) {
+        this.basket.add(itemToGet);
     }
 
     //Now customer gets the item from the shop and the shop removes and returns the item.
@@ -116,17 +113,25 @@ public class Customer {
         return this.trySample.sample();
     }
 
-    public void receiveRefundFromShop(Shop shop){
+    public void receiveRefundFromShop(Shop shop, ArrayList<Item> itemToRefunds){
         double total = 0;
-        ArrayList<Item> stockToTotal = shop.getStock();
-        for(Item item : stockToTotal){
+//        ArrayList<Item> stockToTotal = itemToRefunds//shop.getStock(); //TODO
+
+        for(Item item : itemToRefunds){
             total += item.getPrice();
         }
-        this.wallet += total;
+
+        this.wallet.addFunds(total);
         shop.takeMoneyFromTill(total);
     }
 
 
 
 
-}
+
+
+    }
+
+
+
+

@@ -26,8 +26,8 @@ public class PerishableTest {
 
     @Test
     public void canDisplayItemInWindow(){
-        IDisplayable window = new Perishable(6,"Roses", 7.00, "2nd May 2018");
-        assertEquals("BUY 1 GET 1 FREE", window.displayItemInWindow("BUY 1 GET 1 FREE"));
+        IDisplayable window = new Perishable(6,"ROSES", 7.00, "2nd May 2018");
+        assertEquals("BEST ROSES IN TOWN", window.descriptionForWindowDisplay());
     }
 
     //A class implementing an item also takes on the type of that item. When a class implements an interface
@@ -35,7 +35,7 @@ public class PerishableTest {
 
     @Test
     public void canGiveSamples(){
-        assertEquals("Have a piece", perishable.sample());
+        assertEquals("Have a piece before May 5th 2018", perishable.sample());
     }
 
 }

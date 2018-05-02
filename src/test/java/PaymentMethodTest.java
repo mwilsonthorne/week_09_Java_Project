@@ -19,13 +19,13 @@ public class PaymentMethodTest {
 
     @Test
     public void deductTransactionFromAccount(){
-        paymentMethod.canDeductFromAccount(15.00);
+        paymentMethod.deductFromAccount(15.00);
         assertEquals(35.00, paymentMethod.getBalance(), 0.1);
     }
 
     @Test
     public void refundPreviousTransaction(){
-        paymentMethod.canRefundAccount(20.00);
+        paymentMethod.refundAccount(20.00);
         assertEquals(70.00, paymentMethod.getBalance(), 0.1);
     }
 }

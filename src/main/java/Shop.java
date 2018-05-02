@@ -6,6 +6,7 @@ public class Shop {
     private double startingFloat;
     private double sales;
     private ArrayList<Item> stock;
+    private PaymentMethod method;
 
 
     public Shop(String name, double startingFloat, double sales){
@@ -18,8 +19,7 @@ public class Shop {
     public String getName(){
         return this.name;
     }
-
-
+    
     public double getSales(){
         return this.sales;
     }

@@ -23,11 +23,11 @@ public class PaymentMethod {
         return this.balance;
     }
 
-    public void canDeductFromAccount(double transactionAmount){
+    public void deductFromAccount(double transactionAmount){
         this.balance -= transactionAmount;
     }
 
-    public void canRefundAccount(double transactionAmount){
+    public void refundAccount(double transactionAmount){
         this.balance += transactionAmount;
     }
 
