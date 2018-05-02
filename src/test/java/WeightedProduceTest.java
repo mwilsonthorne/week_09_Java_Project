@@ -17,7 +17,7 @@ import org.junit.Test;
 
         @Test
         public void hasQuantity(){
-            assertEquals(1.0, weightedProduce.getQuantity());
+            assertEquals("1kg", weightedProduce.getQuantity());
         }
     }
 

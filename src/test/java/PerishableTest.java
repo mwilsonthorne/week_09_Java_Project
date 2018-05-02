@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 public class PerishableTest {
 
     Perishable perishable;
-    TopUp topUp;
+
 
     @Before
     public void before(){
