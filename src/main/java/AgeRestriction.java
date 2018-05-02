@@ -10,4 +10,8 @@ public class AgeRestriction extends Item {
     public int getMinAge(){
         return this.minAge;
     }
+
+
+
+
 }

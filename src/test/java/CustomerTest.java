@@ -27,7 +27,6 @@ public class CustomerTest {
         shop = new Shop("Harrids Convenience Store", 200, 1500);
         shop.addStock(item); //for testing we need to add an item object to the item ArrayList in the shop.
 
-
     }
 
     @Test
@@ -52,7 +51,7 @@ public class CustomerTest {
 
     @Test
     public void hasPaymentTypesInWallet(){
-        assertEquals(0, customer.getPaymentType());
+        assertEquals(0, customer.getPaymentType().size());
     }
 
     @Test

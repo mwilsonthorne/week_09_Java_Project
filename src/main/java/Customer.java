@@ -67,6 +67,7 @@ public class Customer {
         return this.paymentMethods;
     }
 
+
     public int basketCount() {
         return this.basket.size();
     }
@@ -124,6 +125,8 @@ public class Customer {
         this.wallet += total;
         shop.takeMoneyFromTill(total);
     }
+
+
 
 
 }
