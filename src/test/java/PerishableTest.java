@@ -35,7 +35,7 @@ public class PerishableTest {
 
     @Test
     public void canGiveSamples(){
-        assertEquals("Hello Victor", perishable.sample());
+        assertEquals("Have a piece", perishable.sample());
     }
 
 }

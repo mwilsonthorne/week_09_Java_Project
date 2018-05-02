@@ -80,7 +80,7 @@ public class CustomerTest {
     public void canHaveASample(){
 //        HotFood hotFood = new HotFood("12pm");
 //        customer = new Customer("Jack", 72, 50, hotFood);
-        assertEquals("Hello Jack", customer.sample());
+        assertEquals("Ready to eat", customer.sample());
     }
 
     @Test

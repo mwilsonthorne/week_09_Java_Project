@@ -87,7 +87,7 @@ public class AdditionalServicesTest {
 
     @Test
     public void canGetSample(){
-        assertEquals("Hello Jack", hotFood.sample());
+        assertEquals("Ready to eat", hotFood.sample());
     }
 
 }

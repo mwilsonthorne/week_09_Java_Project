@@ -23,6 +23,6 @@ public class HotFood extends AdditionalServices implements IEatable {
     }
 
     public String sample(){
-        return "Hello Jack";
+        return "Ready to eat";
     }
 }

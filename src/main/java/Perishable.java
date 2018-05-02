@@ -30,7 +30,7 @@ public class Perishable extends Item implements IDisplayable, IEatable {
     //SOLID = Liskov Substitution.
 
     public String sample(){
-        return "Hello Victor";
+        return "Have a piece";
     }
 
 
