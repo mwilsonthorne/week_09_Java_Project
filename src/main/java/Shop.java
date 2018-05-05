@@ -52,13 +52,13 @@ public class Shop {
     }
 
     public void checkOutCustomer(Customer customer){
-        double total = 0; //We always start with an empty variable as nothing has been put through the till eg 0
-        ArrayList<Item> basketToTotal = customer.getBasket(); //
-        for(Item item : basketToTotal){ //We need to scan each item in the ArrayList(basket)
-            total += item.getPrice(); //We need to get the total price of each item
+        double total = 0;                                                                                                //We always start with an empty variable as nothing has been put through the till eg 0
+        ArrayList<Item> basketToTotal = customer.getBasket();                                                              //
+        for(Item item : basketToTotal){                                                                                       //We need to scan each item in the ArrayList(basket)
+            total += item.getPrice();                                                                                       //We need to get the total price of each item
         }
-        this.sales += total; //So total sales is increased by the total variable
-        customer.takeMoneyFromWallet(total); //The customers wallet is decreased via the wallet method by the (total).
+        this.sales += total;                                                                                              //So total sales is increased by the total variable
+        customer.takeMoneyFromWallet(total);                                                                              //The customers wallet is decreased via the wallet method by the (total).
     }
 
     public void takeMoneyFromTill(double refund){

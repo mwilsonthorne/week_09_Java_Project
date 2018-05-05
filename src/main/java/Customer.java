@@ -115,7 +115,6 @@ public class Customer {
 
     public void receiveRefundFromShop(Shop shop, ArrayList<Item> itemToRefunds){
         double total = 0;
-//        ArrayList<Item> stockToTotal = itemToRefunds//shop.getStock(); //TODO
 
         for(Item item : itemToRefunds){
             total += item.getPrice();

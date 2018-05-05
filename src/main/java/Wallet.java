@@ -23,13 +23,13 @@ public class Wallet {
     private PaymentMethod getDefaultPaymentMethod(){
         PaymentMethod defaultPaymentMethod = null;
 
-        for(PaymentMethod method : paymentMethods ) { //loop through all the payment types.
-            if(method.getType() == defaultPaymentMethodType){ //if the default Payment Type is there then see next line
-                defaultPaymentMethod = method; //put method in result.
+        for(PaymentMethod method : paymentMethods ) {                                                              //loop through all the payment types.
+            if(method.getType() == defaultPaymentMethodType){                                                         //if the default Payment Type is there then see next line
+                defaultPaymentMethod = method;                                                                         //put method in result.
             }
         }
 
-        if (defaultPaymentMethod.equals(null)){ //if you didn't find default, use the first one
+        if (defaultPaymentMethod.equals(null)){                                                                    //if you didn't find default, use the first one
             defaultPaymentMethod = paymentMethods.get(0); //give me the first item from the ArrayList.
         }
 
